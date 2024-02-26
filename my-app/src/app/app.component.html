@@ -1,0 +1,22 @@
+<div>{{name}}</div>
+
+<div>Pintamos user si existe</div>
+@if (user){ 
+  <div>{{user}}</div>
+} @else {
+  <button type="button">Log in</button>
+}
+<hr>
+<div>Pintamos array</div>
+@for (arr of array; track arr) {
+  <p>{{arr}}</p>
+}
+
+<hr>
+<div>Evento y botton</div>
+<button (click)="handlerClick($event)">Haz click</button>
+
+<hr>
+<br>
+<hr>
+
