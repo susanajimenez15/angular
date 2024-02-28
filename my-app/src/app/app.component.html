@@ -1,4 +1,11 @@
-<div>{{name}}</div>
+<app-grip></app-grip>
+
+<hr>
+<br>
+<hr>
+
+<app-signal></app-signal>
+<app-timer></app-timer>
 
 <div>Pintamos user si existe</div>
 @if (user){ 
@@ -6,6 +13,7 @@
 } @else {
   <button type="button">Log in</button>
 }
+
 <hr>
 <div>Pintamos array</div>
 @for (arr of array; track arr) {
