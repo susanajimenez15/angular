@@ -1,6 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { CreateServiceService } from '../create-service.service';
 import { HttpClient } from '@angular/common/http';
+import { URL } from '../app.config';
+import { CreateUrl } from '../utils';
 
 const PATH = '/customer'
 
@@ -12,7 +14,7 @@ interface Request{
 
 const service = (path:string)=>{
   return (http:HttpClient,url:URL)=>{      
-     return new CreateServiceService<Request>(http, CreateUrl(url,path))
+    return new CreateServiceService<Request>(http, CreateUrl(url,path))
   }
 }
 
@@ -27,8 +29,9 @@ const service = (path:string)=>{
     {provide:CreateServiceService<Request>, useFactory:service(PATH)}
   ]
 })
+
 export class CustomerComponent {
   constructor(private service:CreateServiceService<Request> ){
-    this.service.create({id:1,name:"susana jimenez", phone:"666789999"}).subscribe(data=>console.log(data));
+    this.service.create({id:1,name:"susana jimenez", phone:"666789999"})
   }
 }

@@ -1,19 +1,13 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpContext } from '@angular/common/http';
-import { URL_SERVER } from './app.config';
-import { Observable } from 'rxjs';
-
-@Injectable({
-  providedIn: 'root'
-})
+import { HttpClient } from '@angular/common/http';
 
 export class CreateServiceService<T> {
 
-  constructor( private http: HttpClient ) {
-    
+  constructor( private http: HttpClient, private url:string) {
+    console.log(this.url);
   }
-  create(entity:T):Observable<T>{
-    return this.http.post<T>(URL_SERVER.toString(), entity)
+  //create(entity:T):Observable<T>{
+    create(entity:T){
+    //return this.http.post<T>(URL_SERVER.toString(), entity)
     //return this.http.post<T>()
     console.log(entity)
    }

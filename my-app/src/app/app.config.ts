@@ -8,6 +8,7 @@ import { routes } from './app.routes';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 
 export const URL_SERVER = new InjectionToken<String>('Servidor');
+export const URL = new InjectionToken<String>('url');
 
 export const appConfig: ApplicationConfig = {
   providers: [
