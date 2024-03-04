@@ -7,8 +7,9 @@ import { AppComponent } from './app.component';
 })
 export class SService {
 
-  constructor(@Inject(URL_SERVER) servidor: string) {
+  constructor( @Inject(URL_SERVER) servidor: string ) {
     console.log('servidor');
     console.log(servidor);
    }
+   
 }
