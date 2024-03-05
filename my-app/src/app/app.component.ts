@@ -1,10 +1,13 @@
 import { ApplicationConfig, Component, Inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { GripComponent } from './grip/grip.component';
 import { SignalComponent } from './signal/signal.component';
 import { TimerComponent } from './timer/timer.component';
 import { AComponent } from './a/a.component';
 import { BComponent } from './b/b.component';
+import { splitNsName } from '@angular/compiler';
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerComponentComponent } from './customer-component/customer-component.component';
 
 
 @Component({
@@ -16,7 +19,9 @@ import { BComponent } from './b/b.component';
     SignalComponent,
     TimerComponent,
     AComponent,
-    BComponent
+    BComponent,
+    CustomerComponent,
+    CustomerComponentComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -33,6 +38,5 @@ export class AppComponent {
     ev.stopPropagation();
     this.array.push(this.array.length+1)
   }
-
 
 }
