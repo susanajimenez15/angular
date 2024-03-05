@@ -3,6 +3,8 @@ import { CreateServiceService } from '../create-service.service';
 import { HttpClient } from '@angular/common/http';
 import { URL } from '../app.config';
 import { CreateUrl } from '../utils';
+import { lastValueFrom } from 'rxjs';
+import { Spinner } from '../spinner';
 
 const PATH = '/customer'
 
@@ -32,6 +34,26 @@ const service = (path:string)=>{
 
 export class CustomerComponent {
   constructor(private service:CreateServiceService<Request> ){
-    this.service.create({id:1,name:"susana jimenez", phone:"666789999"})
+    this.create();
   }
+
+  @Spinner()
+  private async create(){
+    const result = this.service.create({id:1,name:"susana jimenez", phone:"666789999"})
+    
+    /*
+    Esto es qeuivalente a no poner el spinner
+    try{
+      // spinner on -> para indicar al usuario que esa esperando
+      const result = await lastValueFrom(this.service.create({id:1,name:"susana jimenez", phone:"666789999"}))
+    }
+    catch (err) {
+
+    }
+    finally{
+      // spinner off
+    }*/
+  }
+
 }
+
