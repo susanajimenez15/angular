@@ -3,6 +3,8 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { Spinner } from '../spinner';
+
 
 @Component({
   selector: 'app-customer-component',
@@ -11,6 +13,8 @@ import { switchMap } from 'rxjs/operators';
   templateUrl: './customer-component.component.html',
   styleUrl: './customer-component.component.css'
 })
+
+
 export class CustomerComponentComponent {
 
   /*

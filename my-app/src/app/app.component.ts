@@ -8,6 +8,7 @@ import { BComponent } from './b/b.component';
 import { splitNsName } from '@angular/compiler';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerComponentComponent } from './customer-component/customer-component.component';
+import { ProfileComponent } from './forms/profile/profile.component';
 
 
 @Component({

@@ -1,7 +1,7 @@
 <nav>
   <ul>
-    <li><a routerLink="/pagina1" routerLinkActive="active" ariaCurrentWhenActive="page">Pagina 1</a></li>
-    <li><a routerLink="/pagina2" routerLinkActive="active" ariaCurrentWhenActive="page">Pagina 2</a></li>
+    <li><a routerLink="/pagina1/1" routerLinkActive="active" ariaCurrentWhenActive="page">Pagina 1</a></li>
+    <li><a routerLink="/pagina2" [queryParams]="{name: 'susi', size: 23}" routerLinkActive="active" ariaCurrentWhenActive="page">Pagina 2</a></li>
   </ul>
 </nav>
 <!-- The routed views render in the <router-outlet>-->

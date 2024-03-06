@@ -14,12 +14,16 @@ interface Request{
   phone:string
 }
 
+export interface ISpinner {
+  on():void;
+  off():void;
+}
+
 const service = (path:string)=>{
   return (http:HttpClient,url:URL)=>{      
     return new CreateServiceService<Request>(http, CreateUrl(url,path))
   }
 }
-
 
 @Component({
   selector: 'app-customer',
@@ -28,18 +32,29 @@ const service = (path:string)=>{
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.css',
   providers:[
-    {provide:CreateServiceService<Request>, useFactory:service(PATH)}
+    {
+      provide:CreateServiceService<Request>,
+      useFactory:service(PATH)
+    }
   ]
 })
 
-export class CustomerComponent {
+
+
+export class CustomerComponent implements ISpinner{
   constructor(private service:CreateServiceService<Request> ){
     this.create();
+  }
+  on(): void {
+    console.log('on')
+  }
+  off(): void {
+    console.log('off')
   }
 
   @Spinner()
   private async create(){
-    const result = this.service.create({id:1,name:"susana jimenez", phone:"666789999"})
+    const result = await this.service.create({id:1,name:"susana jimenez", phone:"666789999"})
     
     /*
     Esto es qeuivalente a no poner el spinner

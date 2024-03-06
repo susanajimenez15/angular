@@ -5,7 +5,7 @@ import { Pagina2Component } from './pages/pagina2/pagina2.component';
 // lazyloading
 export const routes: Routes = [
     {
-        path: 'pagina1', loadComponent: () => import('./pages/pagina1/pagina1.component')
+        path: 'pagina1:id', loadComponent: () => import('./pages/pagina1/pagina1.component')
             .then((x) => x.Pagina1Component)
     },
     {
